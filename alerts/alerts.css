@@ -1,0 +1,33 @@
+.alert_content {
+    position: relative;
+    text-align: left;
+    border: 1px  solid black;
+    padding: 1% 15% 1%  1%;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+.X_icon:hover{
+    cursor: pointer;
+}
+.X_icon i{
+    padding: 2% 20% 2% 2%;
+}
+.alert_content p{
+    font-size: 20px;
+}
+.X_icon{
+    position: absolute;
+    top: 1px;
+    right: 4px;
+    cursor: pointer;
+}
+.empty-message ,#emptyMessage_content{
+    text-align: center;
+    font-size: 25px;
+    color: #888888;
+    margin-top: 20px;
+    overflow: hidden;
+    /* display: flex; */
+}

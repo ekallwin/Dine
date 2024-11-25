@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+    <link rel="shortcut icon" href="../Images/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Address.css">
+    <link rel="stylesheet" href="Summary.css">
+    <link rel="stylesheet" href="../css/structure.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="Address.js"></script>
+    <script src="Address-fetch.js"></script>
+</head>
+<body class="bg_color">
+    <div class="title-head">
+        <h1>Address Details</h1>
+    </div>
+      <div class="Address">
+        <form id="address-form">
+          <label>Name <span class="star">*</span></label><br>
+          <input type="text" id="name-input" placeholder="Full name" onkeypress="RemoveNameError()"><br>
+          <p class="Error-text" id="Name-error"></p>
+          <label>Phone number <span class="star">*</span></label><br>
+          <input type="text" id="Phone-number" placeholder="Phone number" maxlength="10" pattern="[6-9][0-9]{9}" onkeypress="RemovePhoneError()"><br>
+          <p class="Error-text" id="Phone-error"></p>
+          <label>Address Lane 1 <span class="star">*</span></label><br>
+          <input type="text" id="lane1" placeholder="House no., Building name"  onkeypress="RemoveLane1Error()"><br>
+          <p class="Error-text" id="lane1-error"></p>
+          <label>Address Lane 2 <span class="star">*</span></label><br>
+          <input type="text" id="lane2" placeholder="Road name, Area, Colony" onkeypress="RemoveLane2Error()">
+          <p class="Error-text" id="lane2-error"></p>
+          <div class="address-content">
+              <label >Pincode <span class="star">*</span></label><br>
+              <input type="tel" id="pincode" placeholder="Enter PIN Code" onkeypress="RemovePincodeError()"  maxlength="6" pattern="^[0-9]{6}$" oninput="this.value=this.value.slice(0,6)"/>
+              <p class="Error-text" id="error-message"></p>
+          </div>
+              <div>
+                  <label>State <span class="star">*</span></label><br>
+                  <input type="text" id="state" placeholder="State" onabort="RemoveStateerror()" readonly><br>
+                  <p class="Error-text" id="state-error"></p>
+                  <label>District <span class="star">*</span></label><br>
+                  <input type="text" id="district" placeholder="District" onkeypress="RemoveDistricterror()"  readonly><br>
+                  <p class="Error-text" id="district-error"></p>
+                  <label>Area <span class="star">*</span></label><br>
+                  <input type="text" id="area" placeholder="Area" onkeypress="RemoveAreaerror()"  readonly ><br>
+                  <p class="Error-text" id="area-error"></p>
+                  <label>Type of Address <span class="star">*</span></label><br>
+                  <select id="Address-type" oninput="RemoveTypeerror()">
+                    <option value="">Select Type </option>
+                    <option value="Home">Home</option>
+                    <option value="Work">Work</option>
+                  </select>
+                  <p class="Error-text" id="Address-type-error"></p>
+              </div>
+              <center>
+                <button type="submit" class="Order-btn" id="submit-btn"  style="margin-top: 10px;" onclick="validate()">Pay</button>
+
+              </center>
+      </form>
+      </div>
+      <div class="button-container" id="home-buttons">
+        <a href="../home/home.html"><button class="button"><i class="fa-solid fa-house fa-xl" title="Home"></i><p class="icon_text">Home</p></button></a>
+        <button class="button"><i class="fa-solid fa-bars fa-xl" title="Catalogs"></i><p class="icon_text">Catalogs</p></button>
+        <a href="../profile/profile.html"><button class="button"><i class="fa-regular fa-user fa-xl" title="Profile"></i><p class="icon_text">Profile</p></button></a>
+        <a href="../alerts/alerts.html"><button class="button"><i class="fa-regular fa-bell fa-xl" title="Alerts"></i><p class="icon_text">Alerts</p></button></a>
+        <button class="button"><i class="fa-solid fa-cart-shopping fa-xl" title="Cart"></i><p class="icon_text">Cart</p></button>
+    </div>
+    
+    <script>
+         let debounceTimer;
+
+document.getElementById('pincode').addEventListener('input', function () {
+  const pincode = this.value.trim();
+  const errorMessage = document.getElementById('error-message');
+
+  errorMessage.style.display = 'none'; // Hide error on new input
+
+  if (pincode.length === 6 && /^[0-9]{6}$/.test(pincode)) {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => fetchLocation(pincode), 300);
+  } else {
+    clearFields();
+  }
+});
+
+async function fetchLocation(pincode) {
+  const stateInput = document.getElementById('state');
+  const districtInput = document.getElementById('district');
+  const areaInput = document.getElementById('area');
+  const errorMessage = document.getElementById('error-message');
+
+  clearFields();
+  showLoading();
+
+  try {
+    const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
+    const data = await response.json();
+
+    if (data[0]?.PostOffice) {
+      // Filter for Sub Post Office first
+      const subPostOffices = data[0].PostOffice.filter(
+        (postOffice) => postOffice.BranchType === "Sub Post Office" && postOffice.DeliveryStatus === "Delivery"
+      );
+
+      if (subPostOffices.length > 0) {
+        const postOffice = subPostOffices[0];
+        stateInput.value = postOffice.State;
+        districtInput.value = postOffice.District;
+        areaInput.value = postOffice.Name;
+      } else {
+        // Fallback to any delivery area if no Sub Post Office exists
+        const deliveryAreas = data[0].PostOffice.filter(
+          (postOffice) => postOffice.DeliveryStatus === "Delivery"
+        );
+
+        if (deliveryAreas.length > 0) {
+          const postOffice = deliveryAreas[0];
+          stateInput.value = postOffice.State;
+          districtInput.value = postOffice.District;
+          areaInput.value = postOffice.Name;
+        } else {
+          showError('No delivery available for this PIN Code ');
+        }
+      }
+    } else {
+      showError('Invalid PIN Code !');
+    }
+  } catch (error) {
+    showError('Error fetching location data. Please try again later.');
+    console.error(error);
+  } finally {
+    hideLoading();
+  }
+}
+
+function clearFields() {
+  document.getElementById('state').value = '';
+  document.getElementById('district').value = '';
+  document.getElementById('area').value = '';
+}
+
+function showLoading() {
+  document.getElementById('state');
+  document.getElementById('district');
+  document.getElementById('area');
+}
+
+function hideLoading() {
+  document.getElementById('state').placeholder = 'State';
+  document.getElementById('district').placeholder = 'District';
+  document.getElementById('area').placeholder = 'Area';
+}
+
+function showError(message) {
+  const errorMessage = document.getElementById('error-message');
+  errorMessage.textContent = message;
+  errorMessage.style.display = 'block';
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body::before,body::after {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../Images/Other_Images/Background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.15; 
+    z-index: -10; 
+}
+
+.container {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 25px;
+    width: 65%;
+    height: 95%;
+    justify-content: center;    
+    margin-top: 25px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.623);
+    margin: 0 auto; 
+    margin-bottom: 100px;
+}
+input[type="text"],
+    input[type="password"] {
+        width: 300px; 
+        height: 40px; 
+        font-size: 16px; 
+        padding: 10px;
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        outline: none; 
+        border-color: blue; 
+        box-shadow: 0 0 8px rgba(0, 0, 255, 0.5); 
+    }
+@media (max-width: 1024px) {
+    .container {
+        margin: 20px auto; 
+        padding: 20px; 
+        max-width: 90%; 
+        width: auto; 
+    }
+    div .form-group {
+        margin: 1px;
+    }
+    
+    .title{
+        margin-top: 45%;
+    }
+    
+}
+
+.Login-btn{
+    padding: 10px;
+    width: 150px;
+    background-color: #F37C18;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    margin-top: 5px;
+}
+.Login-btn:hover{
+    background-color: #e67011;
+    cursor: pointer;
+    border: none;
+}
+.Login-btn:active{
+    background-color: #d65a0d;
+    border: none;
+}
+.Login-btn:focus{
+    outline: none;
+}
+.show_psw:hover{
+    cursor: pointer;
+}
+
+#showPassword:checked {
+    width: 20px;
+    height: 20px;
+    accent-color: blue; 
+    box-shadow: 0 0 9px blue; 
+    outline: none;
+    cursor: pointer;
+}
+
+#showPassword:focus {
+    outline: none;
+}
+
+.TXT {
+    font-size: 18px;
+    font-weight: lighter;
+}

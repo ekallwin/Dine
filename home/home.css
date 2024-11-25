@@ -1,0 +1,37 @@
+.menu-foods {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px;
+    margin-bottom: 100px;
+    font-family: cursive;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.623);
+    
+}
+.menu-foods .food img{
+    width: 75px;
+    height: 75px;
+    margin: 20px;
+    border-radius: 100%;
+}
+@media (min-width: 1024px) {
+    .menu-foods .food img{
+        width: 75px;
+        height: 75px;
+        margin: 5px;
+        border-radius: 100%;
+    }
+    .menu-foods {
+        padding: 1%;
+    }
+}
+
+
+.food:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}

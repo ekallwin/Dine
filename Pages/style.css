@@ -1,0 +1,126 @@
+img{
+    width: 250px;
+    height: 200px; 
+}
+#dynamic-image{
+    width: 150px;
+    height: 100px;
+}
+div h2{
+    margin-top: 20px;
+}
+
+.container{
+    font-family: cursive;
+}
+.Order-btn{
+    padding: 10px;
+    width: 150px;
+    background-color: #F37C18;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    margin-top: 5px;
+}
+.Order-btn:hover{
+    background-color: #e67011;
+    cursor: pointer;
+    border: none;
+}
+.Order-btn:active{
+    background-color: #d65a0d;
+    border: none;
+}
+.Order-btn:focus{
+    outline: none;
+}
+i:hover{
+    cursor: pointer;
+}
+input{
+    background: none;
+    border: none;
+    width: 50%;
+    height: 35px;
+}
+input[type="radio"]{
+    width: 18px;
+    height: 18px;
+    margin-right: 20px;
+}
+.Payment input:hover, label:hover{
+    cursor: pointer;
+}
+.selector:hover ,.selector option:hover {
+    cursor: pointer; /* This sets the cursor to pointer */
+}
+.selector option {
+    cursor: pointer; /* This sets the cursor to pointer for the options */
+}
+
+.title-pages{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.title-head {
+    text-align: center;
+    margin-top: 30px;
+}
+.Error-text{
+    color: rgb(241, 37, 37);
+}
+.error {
+    color: rgb(241, 37, 37);
+    display: none;
+}
+.star{
+    color: red;
+}
+.container{
+    font-weight: 500;
+    font-size: 20px;
+    width: 60%;
+    justify-content: center;
+    margin-top: 25px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.623);
+    /* margin: 0 auto;  */
+    padding: 5%;
+}
+.container img,.Summary_items img{
+    border-radius: 10px;
+}
+
+
+.Summary, .Address,.Payment {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 30px;
+    width: 85%;
+    height: 95%;
+    justify-content: center;    
+    margin-top: 25px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.623);
+    margin: 0 auto; 
+    margin-bottom: 100px;
+}
+#paymentForm div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+    #paymentForm div{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        height: 70px;
+    }
+}
+
+.Payment img{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}

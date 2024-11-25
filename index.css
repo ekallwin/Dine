@@ -1,0 +1,103 @@
+body::before,body::after {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./Images/Other_Images/Background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.25; 
+    z-index: -10; 
+}
+
+.button{
+    padding: 20px;
+    width: 150px;
+    background-color: #F37C18;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+}
+.button:hover{
+    background-color: #e67011;
+    cursor: pointer;
+    border: none;
+}
+.button:active{
+    background-color: #d65a0d;
+    border: none;
+}
+.button:focus{
+    outline: none;
+}
+.title {
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+}
+
+.get_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: serif;
+}
+div{
+    justify-content: center;
+    align-items: center;
+}
+.blinking-dots {
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+#description{
+    margin: 1% 5% 5% 5%;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: cursive;
+    text-align: center;
+    color: black;  
+}
+.container {
+    margin-top: 100px;
+}
+@media (max-width: 1024px) {
+    .container {
+        margin-top: 250px;
+    }
+}
+.fade-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.fade-in_1 {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+.fade-in_1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+footer {  
+    background-color: azure;
+    position: fixed;  
+    bottom: 0;  
+    width: 100%;  
+    padding: 10px;
+    text-align: center;
+}  

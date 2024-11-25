@@ -1,0 +1,32 @@
+.title{
+    margin: 5%;
+
+}
+.contents{
+    text-align: left;
+    font-size: 22px;
+    margin: 1% 4% 8px 4%;
+    background-color: white;
+    padding: 1% 5px 1% 20px;
+}
+@media (max-width: 768px) {
+    .contents {
+        padding: 5% 10px 5% 20px;
+        margin: 2% 4% 15px 4%;
+    }
+}
+#Logout{
+    margin: 30px 6% 75px 6%;
+    text-align: center;
+    border-radius: 5px;
+    color: #007BFF;
+}
+#Logout:hover{
+    cursor: pointer;
+    color: #0056B3;
+}
+.contents i {
+    margin-right: 25px;
+    height: 20px;
+    width: 20px;
+}
