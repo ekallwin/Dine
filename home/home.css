@@ -14,7 +14,7 @@
 .menu-foods .food img{
     width: 75px;
     height: 75px;
-    margin: 10px
+    margin: 10px;
     border-radius: 100%;
 }
 @media (min-width: 1024px) {
